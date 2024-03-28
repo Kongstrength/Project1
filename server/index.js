@@ -22,6 +22,8 @@ const initMYSQL = async () => {
   });
 };
 
+
+
 const validateData = (userData) => {
   let errors = []
   if (!userData.product_id) {

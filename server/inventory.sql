@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db:3306
--- Generation Time: Mar 28, 2024 at 09:17 AM
+-- Generation Time: Mar 28, 2024 at 10:35 AM
 -- Server version: 8.3.0
 -- PHP Version: 8.2.8
 
@@ -47,7 +47,7 @@ CREATE TABLE `inventory` (
 INSERT INTO `inventory` (`id`, `product_id`, `product_name`, `quantity_in_stock`, `unit_price`, `transaction_date`, `quantity`, `person_in_charge`, `product_logist`) VALUES
 (1, 1000, 'Product A', 22, 50.00, '2024-03-28 15:31:00', 10, 'John', 'สั่งซื้อสินค้า'),
 (2, 1001, 'Product B', 20, 50.00, '2024-03-28 14:55:00', 20, 'John', 'เพิ่มจำนวนสต๊อก'),
-(3, 1002, 'Product C', 20, 50.00, '2024-03-29 12:27:00', 5, 'John', 'สั่งซื้อสินค้า'),
+(3, 1002, 'Product C', 20, 50.00, '2024-03-29 12:27:00', 5, 'John', 'ยกเลิกคำสั่งซื้อ'),
 (4, 1003, 'KFC', 1000, 125.56, '2024-03-28 13:11:00', 100, 'Sitthaphop', 'สั่งซื้อสินค้า'),
 (5, 1004, 'HyperX', 100, 2000.00, '2024-03-29 19:47:00', 10, 'Mr.K', 'สั่งซื้อสินค้า'),
 (6, 1005, 'หงส์ไทย', 10000, 30.00, '2024-03-29 12:27:00', 100, 'Mr.S', 'สั่งซื้อสินค้า'),
@@ -59,26 +59,8 @@ INSERT INTO `inventory` (`id`, `product_id`, `product_name`, `quantity_in_stock`
 (12, 1011, 'ไฟฉาย', 100, 50.00, '2024-03-28 13:42:00', 5, 'John', 'สั่งซื้อสินค้า'),
 (13, 1012, 'สาย Usb Type-C', 20000, 100.00, '2024-03-28 13:44:00', 100, 'John', 'สั่งซื้อสินค้า'),
 (14, 1013, 'น้ำเปล่า', 100000, 10.00, '2024-03-28 15:22:00', 0, 'Mr.Sitthaphop', 'สั่งซื้อสินค้า'),
-(15, 1014, 'ปลั๊กไฟ', 1000, 250.00, '2024-03-28 13:47:00', 100, 'Mr.M', 'สั่งซื้อสินค้า');
-
---
--- Triggers `inventory`
---
-DELIMITER $$
-CREATE TRIGGER `update_remaining_quantity` AFTER INSERT ON `inventory` FOR EACH ROW BEGIN
-    DECLARE change_quantity INT;
-    IF NEW.product_logist = 'เพิ่มจำนวนสต๊อก' OR NEW.product_logist = 'แก้ไขสินค้า' THEN
-        SET change_quantity = NEW.quantity;
-    ELSE
-        SET change_quantity = -NEW.quantity;
-    END IF;
-
-    UPDATE inventory
-    SET remaining_quantity = remaining_quantity + change_quantity
-    WHERE id = NEW.id;
-END
-$$
-DELIMITER ;
+(15, 1014, 'ปลั๊กไฟ', 1000, 250.00, '2024-03-28 13:47:00', 100, 'Mr.M', 'สั่งซื้อสินค้า'),
+(16, 1003, 'asdasd', 10000, 50.00, '2024-03-28 17:34:24', 1000, 'asdasd', 'ยกเลิกคำสั่งซื้อ');
 
 --
 -- Indexes for dumped tables
@@ -98,7 +80,7 @@ ALTER TABLE `inventory`
 -- AUTO_INCREMENT for table `inventory`
 --
 ALTER TABLE `inventory`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
