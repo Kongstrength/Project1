@@ -1,0 +1,76 @@
+@font-face {
+  font-family: "Archivo";
+  src: url("./Archivo/Archivo-VariableFont_wdth\,wght.ttf");
+}
+
+body {
+  margin: auto;
+  width: auto;
+  font-family: "Archivo";
+  background-color: peachpuff;
+  height: auto;
+  background-image: url("https://i.pinimg.com/originals/e1/60/1d/e1601d4a1fb7ed5bb2ececca5717913a.jpg");
+  align-items: center;
+  background-size: cover;
+}
+
+.container {
+  max-width: 600px;
+  margin: 0 auto;
+  margin-bottom: 5vh;
+  padding: 20px;
+  border-radius: 5px;
+  background-color: transparent;
+  color: rgb(3, 2, 0);
+  border-radius: 10px;
+  border: 2px solid rgba(248, 9, 9, 0.863);
+  box-shadow: 5 0 20px rgba(255, 255, 255, 0.5);
+  /* เพิ่มเอฟเฟกต์แสงโดยใช้ box-shadow */
+  backdrop-filter: blur(20px);
+}
+
+.container h1 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+input[type="text"],
+input[type="number"],
+select {
+  width: 100%;
+  padding: 8px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.button {
+  width: 100%;
+  padding: 10px 20px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #45a049;
+}
+
+.message {
+  margin-top: 20px;
+  padding: 10px;
+  border-radius: 5px;
+}
+
+.message.success {
+  background-color: #d4edda;
+  color: #155724;
+}
+
+.message.danger {
+  background-color: #f8d7da;
+  color: #721c24;
+}

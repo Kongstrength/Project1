@@ -1,0 +1,65 @@
+@font-face {
+    font-family: "Archivo";
+    src: url("./Archivo/Archivo-VariableFont_wdth\,wght.ttf");
+  }
+
+
+.inventory-heading{
+    display: flex;
+    font-family: "Archivo";
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+}
+/* Table */
+table {
+    width: 100%;
+    
+    font-family: "Archivo";
+    border-collapse: collapse;
+    margin-bottom: 20px;
+}
+
+table th, table td {
+    padding: 7px;
+    text-align: left;
+    
+    /* กำหนดขอบของแต่ละคอลัมน์ */
+    border-bottom: 2px solid #ddd; /* เพิ่มเส้นใต้ขอบของแต่ละแถว */
+    border-right: 1px solid #ddd;  /* เพิ่มเส้นขอบของแต่ละคอลัมน์ */
+}
+
+table th {
+    background-color: #f2f2f2;
+    
+    font-weight: bold;
+}
+
+table tr:hover {
+    
+    background-color: #f5f5f5;
+}
+
+/* Buttons */
+.edit-button, .delete-button {
+    padding: 8px 16px;  /* กำหนดระยะของข้อความภายในปุ่ม */
+    border: none; /* กำหนดไม่มีเส้นขอบ */
+    border-radius: 4px; /* กำหนดมุมของปุ่ม */
+    cursor: pointer; /* กำหนดเคอร์เซอร์เป็นรูปของมือ */
+    transition: background-color 0.3s; /* กำหนดเวลาในการเปลี่ยนสีพื้นหลัง */
+}
+
+.edit-button {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.delete-button {
+    background-color: #cb1b1b;
+    color: white;
+}
+
+.edit-button:hover, .delete-button:hover {
+    background-color: #ff7700;
+}
+
