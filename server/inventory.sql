@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: db:3306
--- Generation Time: Mar 28, 2024 at 10:35 AM
+-- Generation Time: Mar 28, 2024 at 12:08 PM
 -- Server version: 8.3.0
 -- PHP Version: 8.2.8
 
@@ -36,8 +36,8 @@ CREATE TABLE `inventory` (
   `transaction_date` datetime NOT NULL COMMENT 'วันที่เบิกจ่าย',
   `quantity` int NOT NULL COMMENT 'จำนวนสินค้าจะเบิก',
   `person_in_charge` varchar(255) NOT NULL COMMENT 'ผู้รับผิดชอบ',
-  `product_logist` enum('สั่งซื้อสินค้า','เพิ่มจำนวนสต๊อก','ยกเลิกคำสั่งซื้อ') NOT NULL,
-  `remaining_quantity` int GENERATED ALWAYS AS ((case when (`product_logist` = _utf8mb4'สั่งซื้อสินค้า') then (`quantity_in_stock` - `quantity`) when (`product_logist` = _utf8mb4'เพิ่มจำนวนสต๊อก') then (`quantity_in_stock` + `quantity`) when (`product_logist` = _utf8mb4'ยกเลิกคำสั่งซื้อ') then `quantity_in_stock` else NULL end)) STORED
+  `product_logist` enum('สั่งซื้อสินค้า','เพิ่มจำนวนสต๊อก','ยกเลิกคำสั่งซื้อ','ใบสั่งซื้อหมดอายุ') NOT NULL,
+  `remaining_quantity` varchar(255) GENERATED ALWAYS AS ((case when (`product_logist` = _utf8mb4'สั่งซื้อสินค้า') then (`quantity_in_stock` - `quantity`) when (`product_logist` = _utf8mb4'เพิ่มจำนวนสต๊อก') then (`quantity_in_stock` + `quantity`) when (`product_logist` = _utf8mb4'ยกเลิกคำสั่งซื้อ') then `quantity_in_stock` when (`product_logist` = _utf8mb4'ใบสั่งซื้อหมดอายุ') then _utf8mb4' ใบสั่งซื้อหมดอายุ' else NULL end)) STORED
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 
 --
@@ -48,7 +48,7 @@ INSERT INTO `inventory` (`id`, `product_id`, `product_name`, `quantity_in_stock`
 (1, 1000, 'Product A', 22, 50.00, '2024-03-28 15:31:00', 10, 'John', 'สั่งซื้อสินค้า'),
 (2, 1001, 'Product B', 20, 50.00, '2024-03-28 14:55:00', 20, 'John', 'เพิ่มจำนวนสต๊อก'),
 (3, 1002, 'Product C', 20, 50.00, '2024-03-29 12:27:00', 5, 'John', 'ยกเลิกคำสั่งซื้อ'),
-(4, 1003, 'KFC', 1000, 125.56, '2024-03-28 13:11:00', 100, 'Sitthaphop', 'สั่งซื้อสินค้า'),
+(4, 1003, 'KFC', 1000, 125.56, '2024-03-28 13:11:00', 100, 'Sitthaphop', 'ใบสั่งซื้อหมดอายุ'),
 (5, 1004, 'HyperX', 100, 2000.00, '2024-03-29 19:47:00', 10, 'Mr.K', 'สั่งซื้อสินค้า'),
 (6, 1005, 'หงส์ไทย', 10000, 30.00, '2024-03-29 12:27:00', 100, 'Mr.S', 'สั่งซื้อสินค้า'),
 (7, 1006, 'Samsung', 50000, 25000.00, '2024-03-28 13:41:00', 100, 'MR.V', 'สั่งซื้อสินค้า'),
@@ -60,7 +60,8 @@ INSERT INTO `inventory` (`id`, `product_id`, `product_name`, `quantity_in_stock`
 (13, 1012, 'สาย Usb Type-C', 20000, 100.00, '2024-03-28 13:44:00', 100, 'John', 'สั่งซื้อสินค้า'),
 (14, 1013, 'น้ำเปล่า', 100000, 10.00, '2024-03-28 15:22:00', 0, 'Mr.Sitthaphop', 'สั่งซื้อสินค้า'),
 (15, 1014, 'ปลั๊กไฟ', 1000, 250.00, '2024-03-28 13:47:00', 100, 'Mr.M', 'สั่งซื้อสินค้า'),
-(16, 1003, 'asdasd', 10000, 50.00, '2024-03-28 17:34:24', 1000, 'asdasd', 'ยกเลิกคำสั่งซื้อ');
+(16, 1003, 'asdasd', 10000, 50.00, '2024-03-28 17:34:24', 1000, 'asdasd', 'ยกเลิกคำสั่งซื้อ'),
+(17, 1003, 'asdasd', 10000, 2500.00, '2024-03-28 19:05:44', 5000, 'asdasd', 'ใบสั่งซื้อหมดอายุ');
 
 --
 -- Indexes for dumped tables
@@ -80,7 +81,7 @@ ALTER TABLE `inventory`
 -- AUTO_INCREMENT for table `inventory`
 --
 ALTER TABLE `inventory`
-  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` int NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

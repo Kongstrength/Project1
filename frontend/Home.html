@@ -26,7 +26,7 @@
         <div class = "transaction_date">วันที่เบิกจ่าย:</div> 
         <input type="datetime-local" class="transaction_date" name="transaction_date" required> 
 
-        <div class = "quantity">จำนวน:</div> 
+        <div class = "quantity">จำนวนสินค้า:</div> 
         <input type="number" class="quantity" name="quantity" required> 
 
         <div class ="person_in_charge">ผู้รับผิดชอบ:</div> 
@@ -34,9 +34,10 @@
         
         <div class = "product_logist">การเคลื่อนไหวของสินค้า:</div> 
         <select class="product_logist" name="product_logist" required>
-            <option value="">เลือกความเคลื่อนไหวของสินค้า</option>
+            <option value=""></option>
             <option value="สั่งซื้อสินค้า">สั่งซื้อสินค้า</option>
             <option value="เพิ่มจำนวนสต๊อก">เพิ่มจำนวนสต๊อก</option>
+            <option value="ใบสั่งซื้อหมดอายุ">ใบสั่งซื้อหมดอายุ</option>
             <option value="ยกเลิกคำสั่งซื้อ">ยกเลิกคำสั่งซื้อ</option>
         </select>
         <div id="message" class="message"></div>
