@@ -3,12 +3,33 @@
     src: url("./Archivo/Archivo-VariableFont_wdth\,wght.ttf");
   }
 
+  /* Navbar */
+.navbar {
+  font-family: "Archivo";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #000000; /* Green navbar */
+  padding: 10px 20px;
+  box-sizing: border-box;
+}
+
+.navbar-brand {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+}
+
 
 .inventory-heading{
     display: flex;
     font-family: "Archivo";
     justify-content: center;
+    text-align: center;
     align-items: center;
+    margin-top: 50px;
     margin-bottom: 20px;
 }
 /* Table */

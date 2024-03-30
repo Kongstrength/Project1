@@ -3,43 +3,74 @@
   src: url("./Archivo/Archivo-VariableFont_wdth\,wght.ttf");
 }
 
-body {
-  margin: auto;
-  width: auto;
+/* Navbar */
+.navbar {
   font-family: "Archivo";
-  background-color: peachpuff;
-  height: auto;
-  background-image: url("https://i.pinimg.com/originals/e1/60/1d/e1601d4a1fb7ed5bb2ececca5717913a.jpg");
-  align-items: center;
-  background-size: cover;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #000000; /* Green navbar */
+  padding: 10px 20px;
+  box-sizing: border-box;
 }
 
+.navbar-brand {
+  color: white;
+  text-decoration: none;
+  font-size: 20px;
+  font-weight: bold;
+}
+
+/* Body */
+body {
+  margin: 0;
+  padding: 0;
+  background-color: peachpuff;
+  height: 100vh;
+  background-image: url("./Background/Wallpaper.jpg");
+  background-size: cover;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Container */
 .container {
+  margin-top: 50px;
+  width: 90%;
   max-width: 600px;
-  margin: 0 auto;
-  margin-bottom: 5vh;
   padding: 20px;
-  border-radius: 5px;
-  background-color: transparent;
-  color: rgb(3, 2, 0);
   border-radius: 10px;
-  border: 2px solid rgba(248, 9, 9, 0.863);
-  box-shadow: 5 0 20px rgba(255, 255, 255, 0.5);
-  /* เพิ่มเอฟเฟกต์แสงโดยใช้ box-shadow */
+  background-color: whitesmoke;
+  color: rgb(3, 2, 0);
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
   backdrop-filter: blur(20px);
 }
 
-.container h1 {
+.main-title {
   text-align: center;
   margin-bottom: 20px;
 }
 
-input[type="text"],
-input[type="number"],
-select {
-  width: 100%;
+.sub-title {
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+/* Form */
+.form-group {
+  margin-bottom: 15px;
+}
+
+.label {
+  font-weight: bold;
+}
+
+.input,
+.select {
+  width: calc(100% - 16px);
   padding: 8px;
-  margin-bottom: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
   box-sizing: border-box;
@@ -73,4 +104,8 @@ select {
 .message.danger {
   background-color: #f8d7da;
   color: #721c24;
+}
+
+.center {
+  text-align: center;
 }

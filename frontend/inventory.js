@@ -16,17 +16,17 @@ const loadData = async () => {
             htmlData += `
                 <tr>
                     <th>id</th>
-                    <th>product_id</th>
-                    <th>product_name</th>
-                    <th>quantity_in_stock</th>
-                    <th>unit_price</th>
-                    <th>transaction_date</th>
-                    <th>quantity</th>
-                    <th>person_in_charge</th>
-                    <th>product_logist</th>
-                    <th>remaining_quantity</th>
-                    <th>Edit</th>
-                    <th>Delete</th>
+                    <th>รหัสสินค้า</th>
+                    <th>ชื่อสินค้า</th>
+                    <th>จำนวนคงเหลือในสต็อก</th>
+                    <th>ราคาต่อหน่วย</th>
+                    <th>วันที่เบิกจ่าย</th>
+                    <th>จำนวนสินค้า</th>
+                    <th>ผู้รับผิดชอบ</th>
+                    <th>การเคลื่อนไหวของสินค้า</th>
+                    <th>สินค้าเหลือคงคลัง</th>
+                    <th>แก้ไข</th>
+                    <th>ลบ</th>
                 </tr>`;
 
             for (let i = 0; i < response.data.length; i++) {
@@ -44,7 +44,7 @@ const loadData = async () => {
                         <td>${inventory.person_in_charge}</td>
                         <td>${inventory.product_logist.toLocaleString()}</td>
                         <td>${inventory.remaining_quantity.toLocaleString()}</td>
-                        <td><button class='edit-button' data-id='${inventory.id}'>Edit</button></td>
+                        <td><a href='Home.html?id=${inventory.id}' class='edit-button'>Edit</a></td>
                         <td><button class='delete-button' data-id='${inventory.id}'>Delete</button></td>
                     </tr>`;
             }
@@ -52,26 +52,18 @@ const loadData = async () => {
             htmlData += '</table>';
             inventoryDOM.innerHTML = htmlData;
 
-            // Event delegation for edit buttons
-            inventoryDOM.addEventListener('click', async (event) => {
-                if (event.target.classList.contains('edit-button')) {
-                    const id = event.target.dataset.id;
-                    window.location.href = `Home.html?id=${id}`;
-                }
-            });
-
-            // Event delegation for delete buttons
-            inventoryDOM.addEventListener('click', async (event) => {
-                if (event.target.classList.contains('delete-button')) {
+            const deleteDOMs = document.getElementsByClassName('delete-button');
+            for (let i = 0; i < deleteDOMs.length; i++) {
+                deleteDOMs[i].addEventListener('click', async (event) => {
                     const id = event.target.dataset.id;
                     try {
                         await axios.delete(`${BASE_URL}/inventory/${id}`);
-                        await loadData(); // Load data again after deletion
+                        loadData();
                     } catch (error) {
-                        console.error(error);
+                        console.log(error);
                     }
-                }
-            });
+                });
+            }
         } else {
             console.log('inventoryDOM not found');
         }

@@ -9,11 +9,7 @@ window.onload = async () => {
     if (id) {
         mode = "EDIT";
         selectedId = id;
-        await loadProductData(id);
-    }
-}
-
-const loadProductData = async (id) => {
+       
     try {
         const response = await axios.get(`${BASE_URL}/inventory/${id}`);
         const inventory = response.data;
@@ -42,8 +38,10 @@ const loadProductData = async (id) => {
 
     } catch (error) {
         console.log("Error", error);
+        }
     }
 }
+
 const validateData = (userData) => {
     let errors = [];
     if (!userData.product_id) {
@@ -88,8 +86,6 @@ const submitData = async () => {
         let person_in_chargeDOM = document.querySelector("input[name=person_in_charge]");
         let product_logistDOM = document.querySelector("select[name=product_logist]");
         
-        
-        
 
         let userData = {
             product_id: product_idDOM.value,
@@ -107,18 +103,18 @@ const submitData = async () => {
         const errors = validateData(userData);
         if (errors.length > 0) {
             throw {
-                message: "กรอกข้อมูลไม่ครบถ้วนนะจ๊ะ",
+                message: "กรุณากรอกข้อมูลให้ครบถ้วน",
                 errors: errors
             };
         }
 
-        let message = "บันทึกข้อมูลเรียบร้อย";
+        let message = "บันทึกข้อมูลสำเร็จ";
         if (mode === "CREATE") {
             const response = await axios.post(`${BASE_URL}/inventory`, userData);
             console.log('response', response.data);
         } else {
             const response = await axios.put(`${BASE_URL}/inventory/${selectedId}`, userData);
-            message = "แก้ไขข้อมูลเรียบร้อย";
+            message = "แก้ไขข้อมูลสำเร็จ";
             console.log('response', response.data);
         }
 
