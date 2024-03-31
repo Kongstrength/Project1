@@ -5,51 +5,53 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Inventory Form</title>
     <link rel="stylesheet" href="Home.css">
-    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+   
 </head>
 <body>
     <nav class="navbar">
         <a href="inventory.html" class="navbar-brand">Go To Inventory Management</a>
     </nav>
+    
     <div class="container">
         <h1 class="main-title">ระบบจัดการคลังสินค้า</h1>
-        <div class="sub-title">รายการสินค้า</div>
+        
         <div class="form-group">
-            <div class ="product_id label">รหัสสินค้า:</div>
+            <div class="sub-title">รายการสินค้า</div>
+            <div class ="product_id ">รหัสสินค้า:</div>
             <input type="number" id="product_id" class="input" name="product_id" required> 
         </div>
         <div class="form-group">
-            <div class="product_name label">ชื่อสินค้า:</div>
+            <div class="product_name ">ชื่อสินค้า:</div>
             <input type="text" id="product_name" class="input" name="product_name" required> 
         </div>
         <div class="form-group">
-             <div class="quantity_in_stock label">จำนวนคงเหลือในสต็อก:</div>
+             <div class="quantity_in_stock ">จำนวนคงเหลือในสต็อก:</div>
             <input type="number" id="quantity_in_stock" class="input" name="quantity_in_stock" required> 
         </div>
         <div class="sub-title">ข้อมูลการเบิกจ่ายสินค้า</div>
         <div class="form-group">
-            <div class="unit_price label">ราคาต่อหน่วย:</div>
+            <div class="unit_price">ราคาต่อหน่วย:</div>
             <input type="number" id="unit_price" class="input" name="unit_price" required> 
         </div>
         <div class="form-group">
-            <div class="transaction_date label">วันที่เบิกจ่าย:</div>
+            <div class="transaction_date">วันที่เบิกจ่าย:</div>
             <input type="datetime-local" id="transaction_date" class="input" name="transaction_date" required> 
         </div>
         <div class="form-group">
-            <div class="quantity label">จำนวนสินค้า:</div>
+            <div class="quantity">จำนวนสินค้า:</div>
             <input type="number" id="quantity" class="input" name="quantity" required> 
         </div>
         <div class="form-group">
-            <div class="person_in_charge label">ผู้รับผิดชอบ:</div>
+            <div class="person_in_charge">ผู้รับผิดชอบ:</div>
             <input type="text" id="person_in_charge" class="input" name="person_in_charge" required> 
         </div>
         <div class="sub-title">รายงานสถานะคลังสินค้า</div>
         <div class="form-group">
-            <div class="product_logist label">การเคลื่อนไหวของสินค้า:</div>
+            <div class="product_logist">การเคลื่อนไหวของสินค้า:</div>
             <select id="product_logist" class="select" name="product_logist" required>
                 <option value=""></option>
                 <option value="สั่งซื้อสินค้า">สั่งซื้อสินค้า</option>
-                <option value="เพิ่มจำนวนสต็อก">เพิ่มจำนวนสต็อก</option>
+                <option value="เพิ่มจำนวนสต๊อก">เพิ่มจำนวนสต๊อก</option>
                 <option value="ใบสั่งซื้อหมดอายุ">ใบสั่งซื้อหมดอายุ</option>
                 <option value="ยกเลิกคำสั่งซื้อ">ยกเลิกคำสั่งซื้อ</option>
             </select>

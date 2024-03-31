@@ -3,7 +3,7 @@ const BASE_URL = 'http://localhost:8000';
 let mode = "CREATE"; // default mode
 let selectedId = "";
 
-window.onload = async () => {
+window.onload = async () => { // ฟังก์ชันที่จะถูกเรียกเมื่อหน้าเว็บโหลดเสร็จ
     const urlParams = new URLSearchParams(window.location.search);
     const id = urlParams.get('id');
     if (id) {
@@ -13,7 +13,7 @@ window.onload = async () => {
     try {
         const response = await axios.get(`${BASE_URL}/inventory/${id}`);
         const inventory = response.data;
-        
+        const transactionDate = new Date(inventory.transaction_date); // แปลงข้อมูลวันที่ที่ได้มาจาก backend ให้อยู่ในรูปแบบของ Date
         let product_idDOM = document.querySelector("input[name=product_id]")
         let product_nameDOM = document.querySelector("input[name=product_name]")
         let quantity_in_stockDOM = document.querySelector("input[name=quantity_in_stock]")
@@ -23,18 +23,20 @@ window.onload = async () => {
         let quantityDOM = document.querySelector("input[name=quantity]")
         let person_in_chargeDOM = document.querySelector("input[name=person_in_charge]")
         let product_logistDOM = document.querySelector("select[name=product_logist]")
-        let remaining_quantityDOM = document.querySelector("input[name=remaining_quantity]")
+      
 
          product_idDOM.value = inventory.product_id;
-        
+         transactionDate.setHours(transactionDate.getHours() + 7); // ปรับเวลาให้ตรงกับเวลาในไทย
+         const formattedDate = transactionDate.toISOString().slice(0, 16); // แปลงข้อมูลวันที่ให้อยู่ในรูปแบบของ String ให้เป็น 24 ชั่วโมง
+
         product_nameDOM.value = inventory.product_name;
         quantity_in_stockDOM.value = inventory.quantity_in_stock;
         unit_priceDOM.value = inventory.unit_price;
-        transaction_dateDOM.value = inventory.transaction_date;
+        transaction_dateDOM.value = formattedDate; // กำหนดค่าให้กับ input ของวันที่ โดยใช้ข้อมูลที่ได้จาก backend
         quantityDOM.value = inventory.quantity;
         person_in_chargeDOM.value = inventory.person_in_charge;
         product_logistDOM.value = inventory.product_logist;
-        remaining_quantityDOM.value = inventory.remaining_quantity;
+       
 
     } catch (error) {
         console.log("Error", error);
@@ -42,7 +44,7 @@ window.onload = async () => {
     }
 }
 
-const validateData = (userData) => {
+const validateData = (userData) => { // ฟังก์ชันที่ใช้ในการตรวจสอบข้อมูลที่กรอกเข้ามาว่าถูกต้องหรือไม่
     let errors = [];
     if (!userData.product_id) {
         errors.push("กรุณากรอกรหัสสินค้า");
@@ -73,7 +75,7 @@ const validateData = (userData) => {
 
 
 
-const submitData = async () => {
+const submitData = async () => { // ฟังก์ชันที่ใช้ในการส่งข้อมูลไปยัง backend
     let messageDOM = document.getElementById('message');
 
     try {
@@ -92,7 +94,7 @@ const submitData = async () => {
             product_name: product_nameDOM.value,
             quantity_in_stock: quantity_in_stockDOM.value,
             unit_price: unit_priceDOM.value,
-            transaction_date: transaction_dateDOM.value,
+            transaction_date:    transaction_dateDOM.value,
             quantity: quantityDOM.value,
             person_in_charge: person_in_chargeDOM.value,
             product_logist: product_logistDOM.value,          
@@ -109,7 +111,7 @@ const submitData = async () => {
         }
 
         let message = "บันทึกข้อมูลสำเร็จ";
-        if (mode === "CREATE") {
+        if (mode === "CREATE") { 
             const response = await axios.post(`${BASE_URL}/inventory`, userData);
             console.log('response', response.data);
         } else {

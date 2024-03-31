@@ -1,16 +1,16 @@
 const BASE_URL = 'http://localhost:8000';
 
-window.onload = async () => {
+window.onload = async () => { // ฟังก์ชันที่จะถูกเรียกเมื่อหน้าเว็บโหลดเสร็จ
     await loadData();
 };
 
-const loadData = async () => {
+const loadData = async () => { // ฟังก์ชันที่ใช้ในการดึงข้อมูลจาก backend มาแสดง
     console.log('loaded');
     try {
-        const response = await axios.get(`${BASE_URL}/inventory`);
+        const response = await axios.get(`${BASE_URL}/inventory`); 
         console.log(response.data);
 
-        const inventoryDOM = document.getElementById('inventory');
+        const inventoryDOM = document.getElementById('inventory'); 
         if (inventoryDOM) {
             let htmlData = `<table>`;
             htmlData += `
@@ -29,7 +29,7 @@ const loadData = async () => {
                     <th>ลบ</th>
                 </tr>`;
 
-            for (let i = 0; i < response.data.length; i++) {
+            for (let i = 0; i < response.data.length; i++)  { // วนลูปเพื่อดึงข้อมูลที่ได้จาก index.js backend มาแสดง
                 let inventory = response.data[i];
                 let formattedDate = new Date(inventory.transaction_date).toLocaleString('th-TH');// เปลี่ยนเป็นวันที่และเวลาในรูปแบบไทย
                 htmlData += `
@@ -43,17 +43,17 @@ const loadData = async () => {
                         <td>${inventory.quantity.toLocaleString()}</td>
                         <td>${inventory.person_in_charge}</td>
                         <td>${inventory.product_logist.toLocaleString()}</td>
-                        <td>${inventory.remaining_quantity.toLocaleString()}</td>
-                        <td><a href='Home.html?id=${inventory.id}' class='edit-button'>Edit</a></td>
-                        <td><button class='delete-button' data-id='${inventory.id}'>Delete</button></td>
+                        <td>${inventory.remaining_quantity}</td>
+                        <td><a href='Home.html?id=${inventory.id}' class='edit-button'>แก้ไข</a></td>
+                        <td><button class='delete-button' data-id='${inventory.id}'>ลบ</button></td>
                     </tr>`;
             }
 
             htmlData += '</table>';
             inventoryDOM.innerHTML = htmlData;
 
-            const deleteDOMs = document.getElementsByClassName('delete-button');
-            for (let i = 0; i < deleteDOMs.length; i++) {
+            const deleteDOMs = document.getElementsByClassName('delete-button'); // ดึงปุ่มลบทั้งหมด
+            for (let i = 0; i < deleteDOMs.length; i++) { 
                 deleteDOMs[i].addEventListener('click', async (event) => {
                     const id = event.target.dataset.id;
                     try {

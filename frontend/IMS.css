@@ -7,13 +7,13 @@
   /* Navbar */
 .navbar {
   font-family: "Sukhumvit";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
+  position: fixed; /* กำหนดให้ติดด้านบนพอเวลาเลื่อนแถบก็ลงตามมาด้วย */
+  top: 0; /* กำหนดให้ติดด้านบนของหน้าเว็บ */
+  left: 0; /* กำหนดให้ติดด้านซ้ายของหน้าเว็บ */
+  width: 100%; /* กำหนดความกว้างเต็มหน้าจอ */
   background-color: #000000; /* Green navbar */
-  padding: 10px 20px;
-  box-sizing: border-box;
+  padding: 10px 20px; /* กำหนดระยะห่างของข้อความภายใน Navbar */
+  box-sizing: border-box; /* กำหนดให้ข้อความอยู่ในกล่อง */
 }
 
 .navbar-brand {
@@ -24,39 +24,41 @@
   font-weight: bold;
 }
 
-
+/* Body */
 .inventory-heading{
     
     display: flex;
     font-family: "Sukhumvit";
     justify-content: center;
-    text-align: center;
-    align-items: center;
-    margin-top: 50px;
-    margin-bottom: 20px;
+    text-align: center; 
+    align-items: center; /* กำหนดให้ข้อความอยู่ตรงกลาง */
+    margin-top: 50px; /* กำหนดระยะห่างด้านบนของข้อความ */
+    margin-bottom: 20px; /* กำหนดระยะห่างด้านล่างของข้อความ */
 }
-/* Table */
+/* ตกแต่งตารางให้มี font ความกว้างของตาราง  */
 table {
     width: 100%;
     font-family: "Sukhumvit";
-    border-collapse: collapse;
-    margin-bottom: 20px;
+    border-collapse: collapse; /* กำหนดให้เล็กขึ้น */
+   
 }
 
+/* ตกแต่งตารางให้มีสีพื้นหลัง */
 table th, table td {
     font-family: "Sukhumvit";
-    padding: 7px;
-    text-align: left;
+    padding: 7px; /* กำหนดระยะห่างของข้อความ */
+    text-align: left; /* กำหนดให้ข้อความชิดซ้าย */
     
     /* กำหนดขอบของแต่ละคอลัมน์ */
     border-bottom: 2px solid #ddd; /* เพิ่มเส้นใต้ขอบของแต่ละแถว */
     border-right: 1px solid #ddd;  /* เพิ่มเส้นขอบของแต่ละคอลัมน์ */
 }
 
+/* ตกแต่งส่วนหัวของตาราง id,รหัสสินค้า,9ล9*/
 table th {
     background-color: #f2f2f2;
      font-family: "Sukhumvit";
-    font-weight: bold;
+    font-weight: bold; /* กำหนดให้ข้อความหนาขึ้น */
 }
 
 table tr:hover {
@@ -70,7 +72,8 @@ table tr:hover {
     border: none; /* กำหนดไม่มีเส้นขอบ */
     border-radius: 4px; /* กำหนดมุมของปุ่ม */
     cursor: pointer; /* กำหนดเคอร์เซอร์เป็นรูปของมือ */
-    transition: background-color 0.3s; /* กำหนดเวลาในการเปลี่ยนสีพื้นหลัง */
+    transition: background-color 0.3s; /* กำหนดเวลาในการเปลี่ยนสีเวลาเอาเมาส์ไปเลื่อนที่ปุ่ม */
+    text-decoration: none; /* กำหนดไม่มีขีดเส้นใต้ข้อความ */
 }
 
 .edit-button {
@@ -83,7 +86,11 @@ table tr:hover {
     color: white;
 }
 
-.edit-button:hover, .delete-button:hover {
+.edit-button:hover { /* กำหนดสีพื้นหลังเมื่อเมาส์ไปชี้ที่ปุ่ม edit */
+    background-color: rgb(13, 110, 255);
+
+}
+.delete-button:hover { /* กำหนดสีพื้นหลังเมื่อเมาส์ไปชี้ปุ่ม delete */
     background-color: #ff7700;
 }
 

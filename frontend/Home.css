@@ -7,53 +7,53 @@
 /* Navbar */
 .navbar {
   font-family: "Sukhumvit";
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 50px;
-  background-color: #95ddff; 
-  padding: 8px 20px;
-  box-sizing: border-box;
+  position: fixed; /* กำหนดให้ติดด้านบนพอเวลาเลื่อนแถบก็ลงตามมาด้วย */
+  top: 0; /* กำหนดให้ติดด้านบนของหน้าเว็บ */
+  left: 0;  /* กำหนดให้ติดด้านซ้ายของหน้าเว็บ */
+  width: 100%;  /* กำหนดความกว้างเต็มหน้าจอ */
+  height: 50px; /* กำหนดความสูงของ Navbar */
+  background-color: #95ddff;  
+  padding: 8px 20px; /* กำหนดระยะห่างของข้อความภายใน Navbar */
+  box-sizing: border-box; /* กำหนดให้ข้อความอยู่ในกล่อง */
 }
 
 .navbar-brand {
-  color: rgb(255, 111, 224);
-  text-shadow: 5px 3px 5px white;
-  text-decoration: none;
+  color: rgb(255, 111, 224); /* กำหนดสีข้อความ */
+  text-shadow: 5px 3px 5px white; /* กำหนดเงาใต้ข้อความ */
+  text-decoration: none; /* กำหนดให้ไม่มีเส้นใต้ข้อความ */
   font-size: 20px;
-  font-weight: bold;
+  font-weight: bold; /* กำหนดให้ข้อความหนาขึ้น */
 }
 
-/* Body */
+/* ส่วน body */
 body {
-  font-family: "Sukhumvit";
-  margin: 0 auto;
-  padding: 0;
+  font-family: "Sukhumvit"; 
+  margin: 0 auto; /* กำหนดให้ข้อความอยู่ตรงกลาง */
+  padding: 0; /* กำหนดให้ไม่มีระยะห่าง */
   background-color: peachpuff;
   background-image: url("./Background/Wallpaper.jpg");
-  background-size: cover;
-  background-attachment: fixed; 
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  overflow: hidden;
-}
+  background-size: cover; /* กำหนดให้ภาพเต็มหน้าจอ */
+  background-attachment: fixed; /* กำหนดให้ภาพไม่เลื่อน */
+  display: flex; /* กำหนดให้ข้อความอยู่ตรงกลาง */
+  justify-content: center; /* กำหนดให้ข้อความอยู่ตรงกลาง */
+  align-items: center; /* กำหนดให้ข้อความอยู่ตรงกลาง */
+  overflow: hidden; /* กำหนดให้ข้อความอยู่ตรงกลาง */
+} 
 
 /* Container */
 .container {
-  max-width: 600px;
-  width: 90%;
-  margin-top: 6vh;
-  max-height: 88vh;
-  padding: 20px;
-  border-radius: 10px;
+  max-width: 600px; /* กำหนดความกว้างของกล่อง */
+  width: 90%; /* กำหนดความกว้างของกล่อง */
+  margin-top: 6vh; /* กำหนดระยะห่างด้านบนของกล่อง */
+  max-height: 88vh; /* กำหนดความสูงของกล่อง */
+  padding: 20px; /* กำหนดระยะห่างของกล่อง */
+  border-radius: 10px; /* กำหนดขอบมนของกล่อง */
   background-color: rgba(150, 232, 255, 0.5);
-  backdrop-filter: blur(6px);
-  overflow-x: hidden;
-  overflow-y: scroll;
+  backdrop-filter: blur(6px); /* กำหนดให้พื้นหลัง blur */
+  overflow-x: hidden; /* กำหนดให้เลื่อนแนวนอนไม่ได้ */
+  overflow-y: scroll; /* กำหนดให้เลื่อนแนวตั้งได้ */
 }
-
+/* ปรับขอบจอ */
 @media screen and (max-width: 600px) {
   .container {
       margin-top: 60px;
@@ -62,61 +62,58 @@ body {
 
 /* Main Title */
 .main-title {
-  text-align: center;
-  margin-bottom: 20px;
-  padding: 5px;
+  text-align: center; /* กำหนดให้ข้อความอยู่ตรงกลาง */
+  margin-bottom: 20px; /* กำหนดระยะห่างด้านล่างของข้อความ */
+  padding: 5px; /* กำหนดระยะห่างของข้อความ */
   
 }
 
 /* Sub Title */
 .sub-title {
-  text-align: left;
-  margin-top: 30px;
-  font-size: 30px;
+  text-align: left; /* กำหนดให้ข้อความอยู่ทางซ้าย */
+  margin-top: 30px; /* กำหนดระยะห่างด้านบนของข้อความ */
+  font-size: 30px; /* กำหนดขนาดของข้อความ */
 }
 
-/* Form Group */
+/* Form Group เช่น รหัสสินค้า ชื่อสินค้า*/
 .form-group {
-  margin-bottom: 15px;
+  font-size: 20px; /* กำหนดขนาดของข้อความ */
+  margin-bottom: 20px; /* กำหนดระยะห่างด้านล่างของกล่อง */
 }
 
-/* Label */
-.label {
-  font-weight: bold;
-  font-size: 20px;
-}
 
 /* Input & Select */
 .input,
 .select {
-  width: calc(100% - 16px);
-  padding: 8px;
-  background: #ffefef;
-  border: 2px solid #8ee5ff;
-  border-radius: 10px;
-  box-sizing: border-box;
+  width: calc(100% - 16px); /* กำหนดความกว้างของช่องกรอกข้อความ */
+  padding: 8px; /* กำหนดระยะห่างของข้อความ */
+  background: #ffefef; /* กำหนดสีพื้นหลังของช่องกรอกข้อความ */
+  border: 2px solid #8ee5ff; /* กำหนดเส้นขอบของช่องกรอกข้อความ */
+  border-radius: 10px; /* กำหนดมุมของช่องกรอกข้อความ */
+  box-sizing: border-box;/* กำหนดให้ข้อความอยู่ในกล่อง */
 }
 
 /* Button */
 .button {
   width: 100%;
-  padding: 10px 20px;
+  padding: 10px 20px; /* กำหนดระยะของข้อความภายในปุ่ม */
   background-color: #4CAF50;
   color: white;
-  border: none;
-  border-radius: 4px;
-  cursor: pointer;
+  border: none; /* กำหนดไม่มีเส้นขอบ */
+  border-radius: 4px; /* กำหนดมุมของปุ่ม */
+  cursor: pointer; /* กำหนดเคอร์เซอร์เป็นรูปของมือ */
 }
 
-.button:hover {
+.button:hover { /* กำหนดสีพื้นหลังเมื่อเมาส์ไปชี้ที่ปุ่ม */
   background-color: #45a049;
 }
 
 /* Message */
-.message {
-  margin-top: 20px;
-  padding: 10px;
-  border-radius: 5px;
+.message { /* จะโชว์ข้อความเมื่อใส่ข้อมูลไม่ครบ  */
+  font-family: "Sukhumvit";
+  margin-top: 10px; /* กำหนดระยะห่างด้านบนของข้อความ */
+  padding: 10px; /* กำหนดระยะห่างของข้อความ */
+  border-radius: 5px; /* กำหนดมุมของกล่อง */
 }
 
 .message.success {
@@ -131,5 +128,5 @@ body {
 
 /* Center */
 .center {
-  text-align: center;
+  text-align: center; /* กำหนดให้ข้อความอยู่ตรงกลาง */
 }
