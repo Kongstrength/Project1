@@ -13,43 +13,43 @@
     </nav>
     <div class="container">
         <h1 class="main-title">ระบบจัดการคลังสินค้า</h1>
-        <h2 class="sub-title">รายการสินค้า</h2> 
+        <div class="sub-title">รายการสินค้า</div>
         <div class="form-group">
-            <label for="product_id" class="label">รหัสสินค้า:</label> 
+            <div class ="product_id label">รหัสสินค้า:</div>
             <input type="number" id="product_id" class="input" name="product_id" required> 
         </div>
         <div class="form-group">
-            <label for="product_name" class="label">ชื่อสินค้า:</label> 
+            <div class="product_name label">ชื่อสินค้า:</div>
             <input type="text" id="product_name" class="input" name="product_name" required> 
         </div>
         <div class="form-group">
-            <label for="quantity_in_stock" class="label">จำนวนคงเหลือในสต็อก:</label> 
+             <div class="quantity_in_stock label">จำนวนคงเหลือในสต็อก:</div>
             <input type="number" id="quantity_in_stock" class="input" name="quantity_in_stock" required> 
         </div>
-        <h2 class="sub-title">ข้อมูลการเบิกจ่ายสินค้า</h2> 
+        <div class="sub-title">ข้อมูลการเบิกจ่ายสินค้า</div>
         <div class="form-group">
-            <label for="unit_price" class="label">ราคาต่อหน่วย:</label> 
+            <div class="unit_price label">ราคาต่อหน่วย:</div>
             <input type="number" id="unit_price" class="input" name="unit_price" required> 
         </div>
         <div class="form-group">
-            <label for="transaction_date" class="label">วันที่เบิกจ่าย:</label> 
+            <div class="transaction_date label">วันที่เบิกจ่าย:</div>
             <input type="datetime-local" id="transaction_date" class="input" name="transaction_date" required> 
         </div>
         <div class="form-group">
-            <label for="quantity" class="label">จำนวนสินค้า:</label> 
+            <div class="quantity label">จำนวนสินค้า:</div>
             <input type="number" id="quantity" class="input" name="quantity" required> 
         </div>
         <div class="form-group">
-            <label for="person_in_charge" class="label">ผู้รับผิดชอบ:</label> 
+            <div class="person_in_charge label">ผู้รับผิดชอบ:</div>
             <input type="text" id="person_in_charge" class="input" name="person_in_charge" required> 
         </div>
-        <h3 class="sub-title">รายงานสถานะคลังสินค้า</h3> 
+        <div class="sub-title">รายงานสถานะคลังสินค้า</div>
         <div class="form-group">
-            <label for="product_logist" class="label">การเคลื่อนไหวของสินค้า:</label> 
+            <div class="product_logist label">การเคลื่อนไหวของสินค้า:</div>
             <select id="product_logist" class="select" name="product_logist" required>
                 <option value=""></option>
                 <option value="สั่งซื้อสินค้า">สั่งซื้อสินค้า</option>
-                <option value="เพิ่มจำนวนสต๊อก">เพิ่มจำนวนสต๊อก</option>
+                <option value="เพิ่มจำนวนสต็อก">เพิ่มจำนวนสต็อก</option>
                 <option value="ใบสั่งซื้อหมดอายุ">ใบสั่งซื้อหมดอายุ</option>
                 <option value="ยกเลิกคำสั่งซื้อ">ยกเลิกคำสั่งซื้อ</option>
             </select>
