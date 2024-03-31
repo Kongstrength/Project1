@@ -9,10 +9,12 @@ window.onload = async () => { // ฟังก์ชันที่จะถู�
     if (id) {
         mode = "EDIT";
         selectedId = id;
+       console.log('id', id);
        
     try {
         const response = await axios.get(`${BASE_URL}/inventory/${id}`);
         const inventory = response.data;
+        console.log(response.data);
         const transactionDate = new Date(inventory.transaction_date); // แปลงข้อมูลวันที่ที่ได้มาจาก backend ให้อยู่ในรูปแบบของ Date
         let product_idDOM = document.querySelector("input[name=product_id]")
         let product_nameDOM = document.querySelector("input[name=product_name]")
@@ -26,7 +28,7 @@ window.onload = async () => { // ฟังก์ชันที่จะถู�
       
 
          product_idDOM.value = inventory.product_id;
-         transactionDate.setHours(transactionDate.getHours() + 7); // ปรับเวลาให้ตรงกับเวลาในไทย
+         transactionDate.setHours(transactionDate.getHours() + 7); // ปรับเวลาให้ตรงกับเวลาในไทย + 7
          const formattedDate = transactionDate.toISOString().slice(0, 16); // แปลงข้อมูลวันที่ให้อยู่ในรูปแบบของ String ให้เป็น 24 ชั่วโมง
 
         product_nameDOM.value = inventory.product_name;
