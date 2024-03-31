@@ -32,8 +32,8 @@
     justify-content: center;
     text-align: center; 
     align-items: center; /* กำหนดให้ข้อความอยู่ตรงกลาง */
-    margin-top: 50px; /* กำหนดระยะห่างด้านบนของข้อความ */
-    margin-bottom: 20px; /* กำหนดระยะห่างด้านล่างของข้อความ */
+    margin-top: 70px; /* เลื่อนข้อความให้มาอยู่ด้านล่าง*/
+    margin-bottom: 20px; /* เลื่อน ตารางลงมาด้านล่าง */
 }
 /* ตกแต่งตารางให้มี font ความกว้างของตาราง  */
 table {
@@ -43,7 +43,7 @@ table {
    
 }
 
-/* ตกแต่งตารางให้มีสีพื้นหลัง */
+/* ตกแต่งตารางให้มีขอบด้านล่างและด้านขวา */
 table th, table td {
     font-family: "Sukhumvit";
     padding: 7px; /* กำหนดระยะห่างของข้อความ */
@@ -61,10 +61,12 @@ table th {
     font-weight: bold; /* กำหนดให้ข้อความหนาขึ้น */
 }
 
+
 table tr:hover {
-    
-    background-color: #f5f5f5;
-}
+    background-color: #f5f5f5; /* กำหนดสีพื้นหลังเมื่อเมาส์ไปชี้ที่แถว */
+   }
+
+
 
 /* Buttons */
 .edit-button, .delete-button {
@@ -74,16 +76,17 @@ table tr:hover {
     cursor: pointer; /* กำหนดเคอร์เซอร์เป็นรูปของมือ */
     transition: background-color 0.3s; /* กำหนดเวลาในการเปลี่ยนสีเวลาเอาเมาส์ไปเลื่อนที่ปุ่ม */
     text-decoration: none; /* กำหนดไม่มีขีดเส้นใต้ข้อความ */
+    font-family: "Sukhumvit";
 }
 
 .edit-button {
     background-color: #4CAF50;
-    color: white;
+    color: white; /* กำหนดสีข้อความ */
 }
 
 .delete-button {
     background-color: #cb1b1b;
-    color: white;
+    color: white;   /* กำหนดสีข้อความ */
 }
 
 .edit-button:hover { /* กำหนดสีพื้นหลังเมื่อเมาส์ไปชี้ที่ปุ่ม edit */

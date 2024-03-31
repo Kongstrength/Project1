@@ -13,10 +13,10 @@ window.onload = async () => { // ฟังก์ชันที่จะถู�
        
     try {
         const response = await axios.get(`${BASE_URL}/inventory/${id}`);
-        const inventory = response.data;
+        const inventory = response.data;// const ที่ตัวแปร inventory ตัวแปรคงที่ที่เก็บข้อมูลที่ได้จาก backend
         console.log(response.data);
         const transactionDate = new Date(inventory.transaction_date); // แปลงข้อมูลวันที่ที่ได้มาจาก backend ให้อยู่ในรูปแบบของ Date
-        let product_idDOM = document.querySelector("input[name=product_id]")
+        let product_idDOM = document.querySelector("input[name=product_id]") // let คือตัวแปรที่สามารถเปลี่ยนค่าได้ 
         let product_nameDOM = document.querySelector("input[name=product_name]")
         let quantity_in_stockDOM = document.querySelector("input[name=quantity_in_stock]")
         let unit_priceDOM = document.querySelector("input[name=unit_price]")
